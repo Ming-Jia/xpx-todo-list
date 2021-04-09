@@ -1,10 +1,9 @@
-import './Page/HomePage';
+import Routing from './Routing';
 
 import './App.css';
-import HomePage from './Page/HomePage';
 
 function App() {
-  return <HomePage />;
+  return <Routing />;
 }
 
 export default App;
