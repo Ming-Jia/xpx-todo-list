@@ -1,0 +1,14 @@
+.create-todo-button-container {
+  margin: 1rem auto;
+  display: flex;
+  justify-content: center;
+}
+
+.create-todo-button-container__button {
+  border: none;
+  border-radius: 50%;
+  padding: 1rem;
+  font-size: 1.5rem;
+  color: white;
+  background: rgb(73, 159, 216);
+}
