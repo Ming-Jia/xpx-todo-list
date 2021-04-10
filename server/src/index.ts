@@ -2,6 +2,8 @@ import express from 'express';
 
 const app = express();
 
+if (process.env.NODE_ENV !== 'production') require('dotenv').config();
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -15,6 +17,6 @@ app.use((req, res, next) => {
   next();
 });
 
-app.listen(5000, () => {
-  console.log('Server port number: 5000');
+app.listen(process.env.SERVER_PORT, () => {
+  console.log('Server port number: ', process.env.SERVER_PORT);
 });
