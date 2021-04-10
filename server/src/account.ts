@@ -1,6 +1,8 @@
 import { Account, NetworkType } from 'tsjs-xpx-chain-sdk';
 
-// const network = sdk.NetworkType.TEST_NET;
+// TODO Remove when committing
+if (process.env.NODE_ENV !== 'production') require('dotenv').config();
+
 const privateKey = process.env.XPX_PRIVATE_KEY as string;
 const NETWORK = NetworkType.TEST_NET;
 const ACCOUNT = Account.createFromPrivateKey(privateKey, NETWORK);
