@@ -1,7 +1,6 @@
 import { ACCOUNT, NETWORK, API_URL } from './account';
 import {
   Deadline,
-  NetworkType,
   PlainMessage,
   TransactionHttp,
   TransferTransaction,
@@ -29,12 +28,8 @@ const addTodoToXpx = (todoName: string): string => {
 };
 
 const logTransactionStatus = async (hashRef: string) => {
-  // transactionHttp.getTransaction(hashRef).subscribe((transaction) => {
-  //   console.log(transaction);
-  // });
-
   const transaction = await transactionHttp.getTransaction(hashRef);
-  transaction.forEach(tx => console.log(tx))
+  transaction.forEach((tx) => console.log(tx));
 };
 
-logTransactionStatus('E187F7D9F3A8893B434E571C997C5128901EFFF4C4A4A9F1B6EA656AE04EB52C')
+export { addTodoToXpx, logTransactionStatus };
