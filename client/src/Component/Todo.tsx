@@ -2,12 +2,9 @@ import { useState } from 'react';
 
 import './Todo.css';
 
-interface Todo {
-  todoName: string;
-  isComplete: boolean;
-}
+import TodoInterface from '../../../interface/TodoInterface'
 
-const Todo: React.FC<Todo> = ({ todoName, isComplete }) => {
+const Todo: React.FC<TodoInterface> = ({ taskName, isComplete }) => {
   const [isChecked, setIsChecked] = useState(isComplete);
 
   const updateTodoStatus = () => {
@@ -23,7 +20,7 @@ const Todo: React.FC<Todo> = ({ todoName, isComplete }) => {
 
   return (
     <div className="todo-container">
-      <p className="todo-container__name">{todoName}</p>
+      <p className="todo-container__name">{taskName}</p>
       <input
         type="checkbox"
         className="todo-container__status"

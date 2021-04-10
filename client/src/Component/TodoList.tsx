@@ -1,14 +1,11 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Todo from './Todo';
+import TodoInterface from '../../../interface/TodoInterface'
 
 import './TodoList.css';
 
-interface TodoInterface {
-  taskName: string;
-  isComplete: boolean;
-  ref: string;
-}
+
 
 const TodoList: React.FC = () => {
   const [todoList, setTodoList] = useState([]);
@@ -29,7 +26,7 @@ const TodoList: React.FC = () => {
         return (
           <Todo
             key={curTodo.ref}
-            todoName={curTodo.taskName}
+            taskName={curTodo.taskName}
             isComplete={curTodo.isComplete}
           />
         );

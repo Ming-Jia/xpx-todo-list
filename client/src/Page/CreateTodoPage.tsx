@@ -11,7 +11,7 @@ const CreateTodoPage: React.FC = () => {
     console.log('Task: ', taskName);
 
     const res = await axios.post('http://localhost:5000/create-todo', {
-      name: taskName,
+      taskName,
       isComplete: false,
     });
 
