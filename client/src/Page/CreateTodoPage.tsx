@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 import './CreateTodoPage.css';
 
@@ -8,6 +9,13 @@ const CreateTodoPage: React.FC = () => {
 
   const createTodo = async () => {
     console.log('Task: ', taskName);
+
+    const res = await axios.post('http://localhost:5000/create-todo', {
+      name: taskName,
+      isComplete: false,
+    });
+
+    console.log('Create Todo Status:', res.status);
   };
 
   return (
