@@ -28,7 +28,7 @@ router.post('/create-todo', (req, res, next) => {
   console.log('stage: create-todo');
 
   let task = req.body;
-  const taskRef = addTodoToXpx(task);
+  const taskRef = addTodoToXpx(JSON.stringify(task));
 
   // Get existing to-do-list
   let existingTodo = fs.readFileSync(JSON_FILE_LOCATION, 'utf8');
@@ -51,7 +51,7 @@ router.post('/update-todo', (req, res, next) => {
 
   let task = req.body;
   console.log('first task', task);
-  const taskRef = addTodoToXpx(task);
+  const taskRef = addTodoToXpx(JSON.stringify(task));
 
   // Get existing to-do-list
   const existingTodo = fs.readFileSync(JSON_FILE_LOCATION, 'utf8');
