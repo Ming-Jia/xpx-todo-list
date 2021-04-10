@@ -18,7 +18,7 @@ const Todo: React.FC<Todo> = ({ todoName, isComplete }) => {
     setIsChecked(!isChecked);
 
     // Post a new request to server
-    updateTodoStatus;
+    updateTodoStatus();
   };
 
   return (
