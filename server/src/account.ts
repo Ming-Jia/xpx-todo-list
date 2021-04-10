@@ -1,6 +1,5 @@
 import { Account, NetworkType } from 'tsjs-xpx-chain-sdk';
 
-// TODO Remove when committing
 if (process.env.NODE_ENV !== 'production') require('dotenv').config();
 
 const privateKey = process.env.XPX_PRIVATE_KEY as string;
