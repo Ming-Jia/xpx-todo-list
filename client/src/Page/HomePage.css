@@ -1,0 +1,15 @@
+.main-layout {
+  height: 100vh;
+  padding: 1rem;
+}
+
+.main-layout__title {
+  text-align: center;
+}
+
+.main-layout__content {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 90%;
+}
