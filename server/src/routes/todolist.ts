@@ -35,7 +35,7 @@ router.post('/create-todo', (req, res, next) => {
   task['ref'] = taskRef;
 
   // Combine existing to-do-list with the new to-do
-  const outputData = [task, ...existingTodo];
+  const outputData = [...existingTodo, task];
 
   // Output to the todolist.json
   fs.writeFileSync(JSON_FILE_LOCATION, JSON.stringify(outputData));
