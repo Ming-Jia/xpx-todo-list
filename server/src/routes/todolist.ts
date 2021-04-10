@@ -50,23 +50,26 @@ router.post('/update-todo', (req, res, next) => {
   console.log('stage: update-todo');
 
   let task = req.body;
+  console.log('first task', task);
   const taskRef = addTodoToXpx(task);
 
   // Get existing to-do-list
   const existingTodo = fs.readFileSync(JSON_FILE_LOCATION, 'utf8');
   const existingTodoJSON: [TodoInterface] = JSON.parse(existingTodo);
   const filtedExistingTodoJSON = existingTodoJSON.filter(
-    (t) => t.ref != task.ref
+    (t) => t.refNo != task.refNo
   );
 
   // Attach ref to the new to-do
-  task['ref'] = taskRef;
+  task['refNo'] = taskRef;
 
   // Combine existing to-do-list with the new to-do
 
   const outputData = task.isComplete
     ? [...filtedExistingTodoJSON, task]
     : [task, ...filtedExistingTodoJSON];
+
+  console.log('task', outputData);
 
   // Output to the todolist.json
   fs.writeFileSync(JSON_FILE_LOCATION, JSON.stringify(outputData));

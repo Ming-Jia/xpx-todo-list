@@ -1,20 +1,28 @@
 import { useState } from 'react';
+import axios from 'axios';
 
 import './Todo.css';
 
-import TodoInterface from '../../../interface/TodoInterface'
+import TodoInterface from '../../../interface/TodoInterface';
 
-const Todo: React.FC<TodoInterface> = ({ taskName, isComplete }) => {
+const Todo: React.FC<TodoInterface> = ({ taskName, isComplete, refNo }) => {
   const [isChecked, setIsChecked] = useState(isComplete);
 
-  const updateTodoStatus = () => {
-    console.log('update the status');
+  const updateTodoStatus = async () => {
+    const res = await axios.post('http://localhost:5000/update-todo', {
+      taskName,
+      isComplete: !isChecked,
+      refNo,
+    });
+
+    console.log('Status:', res.status);
   };
 
-  const handleChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
+  const handleChange: React.ChangeEventHandler<HTMLInputElement> = async (
+    event
+  ) => {
     setIsChecked(!isChecked);
 
-    // Post a new request to server
     updateTodoStatus();
   };
 
